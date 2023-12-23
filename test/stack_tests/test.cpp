@@ -14,4 +14,15 @@ TEST(StackTests, stack_is_empty_after_init)
     EXPECT_TRUE(stack_is_empty(&stack));
 }
 
+TEST(StackTests, stack_not_empty_after_adding_item)
+{
+    stack_s_t stack;
+    uint32_t item = 5;
+
+    stack_init(&stack);
+    stack_push(&stack, item);
+
+    EXPECT_FALSE(stack_is_empty(&stack));
+}
+
 

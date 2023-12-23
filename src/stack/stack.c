@@ -20,7 +20,7 @@ bool stack_is_empty(stack_s_t * stack)
     return true;
 }
 
-void stack_push(stack_s_t * stack, uint32_t item)
+void stack_push(stack_s_t * stack, item_t item)
 {
     stack->top += 1;
     stack->buffer[stack->top] = item;

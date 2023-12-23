@@ -17,7 +17,7 @@ TEST(StackTests, stack_is_empty_after_init)
 TEST(StackTests, stack_not_empty_after_adding_item)
 {
     stack_s_t stack;
-    uint32_t item = 5;
+    item_t item = 5;
 
     stack_init(&stack);
     stack_push(&stack, item);

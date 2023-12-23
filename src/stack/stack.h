@@ -17,3 +17,5 @@ typedef struct
 void stack_init(stack_s_t *);
 
 bool stack_is_empty(stack_s_t *);
+
+void stack_push(stack_s_t *, uint32_t);

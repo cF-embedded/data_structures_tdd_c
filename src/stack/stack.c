@@ -25,3 +25,8 @@ void stack_push(stack_s_t * stack, item_t item)
     stack->top += 1;
     stack->buffer[stack->top] = item;
 }
+
+item_t stack_peek(stack_s_t * stack)
+{
+   return stack->buffer[stack->top]; 
+}

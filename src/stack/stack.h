@@ -3,10 +3,15 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#define STACK_SIZE 32
+
+typedef uint32_t buffor_t;
+typedef uint8_t top_t;
+
 typedef struct 
 {
-    uint32_t buffer[32];
-    uint8_t top;
+    buffor_t buffer[STACK_SIZE];
+    top_t top;
 } stack_s_t; 
 
 void stack_init(stack_s_t *);

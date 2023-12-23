@@ -1,3 +1,6 @@
+# Out folder
+test/stack_tests/out
+
 # Json files
 *.json
 

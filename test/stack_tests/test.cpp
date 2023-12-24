@@ -56,7 +56,7 @@ TEST(StackTests, not_pop_if_stack_is_empty)
     EXPECT_FALSE(stack_pop(&stack));
 }
 
-TEST(StackTests, pop_working_properly)
+TEST(StackTests, pop_top_element)
 {
     stack_s_t stack;
     item_t first_item = 13;

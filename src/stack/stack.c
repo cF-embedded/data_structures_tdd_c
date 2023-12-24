@@ -38,5 +38,7 @@ bool stack_pop(stack_s_t * stack)
         return false;
     }
 
+    stack->buffer[stack->top] = 0;
+    stack->top -= 1;
     return true;
 }

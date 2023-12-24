@@ -47,4 +47,15 @@ TEST(StackTests, pop_item_if_stack_is_not_empty)
     EXPECT_TRUE(stack_pop(&stack));
 }
 
+TEST(StackTests, not_pop_item_if_stack_is_empty)
+{
+    stack_s_t stack;
+
+    stack_init(&stack);
+
+    EXPECT_FALSE(stack_pop(&stack));
+}
+
+
+
 

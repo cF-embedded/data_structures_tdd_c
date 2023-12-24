@@ -30,3 +30,8 @@ item_t stack_peek(stack_s_t * stack)
 {
    return stack->buffer[stack->top]; 
 }
+
+bool stack_pop(stack_s_t * stack)
+{
+    return true;
+}

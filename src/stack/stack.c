@@ -33,5 +33,10 @@ item_t stack_peek(stack_s_t * stack)
 
 bool stack_pop(stack_s_t * stack)
 {
+    if(stack_is_empty(stack))
+    {
+        return false;
+    }
+
     return true;
 }

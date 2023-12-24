@@ -70,5 +70,20 @@ TEST(StackTests, pop_top_element)
     EXPECT_EQ(first_item, stack_peek(&stack));
 }
 
+TEST(StackTests, stack_is_full_after_pushing_max_items)
+{
+    stack_s_t stack;
+    item_t item = 0xFFFFFFFF;
+    uint8_t i;
+
+    stack_init(&stack);
+    for(i = 0; i < STACK_SIZE; i++)
+    {
+        stack_push(&stack, item);
+    }
+    
+    EXPECT_TRUE(stack_is_full(&stack));
+}
+
 
 

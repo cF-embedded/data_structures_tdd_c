@@ -56,6 +56,19 @@ TEST(StackTests, not_pop_if_stack_is_empty)
     EXPECT_FALSE(stack_pop(&stack));
 }
 
+TEST(StackTests, pop_working_properly)
+{
+    stack_s_t stack;
+    item_t first_item = 13;
+    item_t second_item = 42;
+
+    stack_init(&stack);
+    stack_push(&stack, first_item);
+    stack_push(&stack, second_item);
+    stack_pop(&stack);
+
+    EXPECT_EQ(first_item, stack_peek(&stack));
+}
 
 
 

@@ -36,4 +36,15 @@ TEST(StackTests, added_item_is_equal_item_on_top)
     EXPECT_EQ(item, stack_peek(&stack));
 }
 
+TEST(StackTests, pop_item_if_stack_is_not_empty)
+{
+    stack_s_t stack;
+    item_t item = 13;
+
+    stack_init(&stack);
+    stack_push(&stack, item);
+
+    EXPECT_TRUE(stack_pop(&stack));
+}
+
 

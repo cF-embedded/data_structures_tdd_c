@@ -21,7 +21,7 @@ void stack_init(stack_s_t *);
 
 bool stack_is_empty(stack_s_t *);
 
-void stack_push(stack_s_t *, item_t);
+bool stack_push(stack_s_t *, item_t);
 
 item_t stack_peek(stack_s_t *);
 

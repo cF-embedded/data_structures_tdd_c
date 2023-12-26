@@ -84,5 +84,19 @@ TEST(StackTests, stack_is_full_after_pushing_max_items)
     EXPECT_TRUE(stack_is_full(&stack));
 }
 
+TEST(StackTests, not_add_item_if_stack_is_full)
+{
+    stack_s_t stack;
+    item_t item = 0xFFFFFF;
+    
+    stack_init(&stack);
+    for(uint8_t i = 0; i < STACK_SIZE; i++)
+    {
+        stack_push(&stack, item);
+    }
+    
+    EXPECT_FALSE(stack_push(&stack, item));
+}
+
 
 

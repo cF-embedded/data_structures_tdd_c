@@ -98,5 +98,13 @@ TEST(StackTests, not_add_item_if_stack_is_full)
     EXPECT_FALSE(stack_push(&stack, item));
 }
 
+TEST(StackTests, not_peek_if_stack_is_empty)
+{
+    stack_s_t stack;
+
+    stack_init(&stack);
+
+    EXPECT_EQ(0, stack_peek(&stack));
+}
 
 

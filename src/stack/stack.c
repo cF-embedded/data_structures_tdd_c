@@ -7,17 +7,17 @@ void stack_init(stack_s_t * stack)
         stack->buffer[i] = 0;
     }
 
-    stack->top = 0;
+    stack->top = -1;
 }
 
 bool stack_is_empty(stack_s_t * stack)
 {   
-    if(stack->buffer[stack->top] != 0)
+    if(stack->top == -1)
     {
-        return false;
+        return true;
     }
 
-    return true;
+    return false;
 }
 
 void stack_push(stack_s_t * stack, item_t item)
@@ -41,4 +41,14 @@ bool stack_pop(stack_s_t * stack)
     stack->buffer[stack->top] = 0;
     stack->top -= 1;
     return true;
+}
+
+bool stack_is_full(stack_s_t * stack)
+{
+    if(stack->top == (STACK_SIZE - 1))
+    {
+        return true;
+    }
+
+    return false;
 }

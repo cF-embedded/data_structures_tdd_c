@@ -73,11 +73,10 @@ TEST(StackTests, pop_top_element)
 TEST(StackTests, stack_is_full_after_pushing_max_items)
 {
     stack_s_t stack;
-    item_t item = 0xFFFFFFFF;
-    uint8_t i;
-
+    item_t item = 0xFFFFFF;
+    
     stack_init(&stack);
-    for(i = 0; i < STACK_SIZE; i++)
+    for(uint8_t i = 0; i < STACK_SIZE; i++)
     {
         stack_push(&stack, item);
     }

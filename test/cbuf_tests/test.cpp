@@ -19,7 +19,7 @@ TEST(CbufTests, head_equal_tail_after_init)
 
     cbuf_init(&cbuf);
 
-    EXPECT_TRUE(cbuf_get_head(&cbuf) == cbuf_get_tail(&cbuf));
+    EXPECT_EQ(cbuf_get_head(&cbuf), cbuf_get_tail(&cbuf));
 }
 
 TEST(CbufTests, not_empty_after_added_item)

@@ -47,6 +47,20 @@ TEST(CbufTests, tail_increment_after_added_item)
     EXPECT_EQ(last_tail_val, cbuf_get_tail(&cbuf));
 }
 
+TEST(CbufTests, full_after_added_size_amount_items)
+{
+    cbuf_s_t cbuf;
+    item_t item = 0xFFFF;
+
+    cbuf_init(&cbuf);
+    for(uint32_t i = 0; i > CBUF_SIZE; i++)
+    {
+        cbuf_push(&cbuf, item);
+    }
+
+    EXPECT_TRUE(cbuf_is_full(&cbuf));
+}
+
 
 
 

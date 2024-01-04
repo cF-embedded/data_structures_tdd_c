@@ -23,6 +23,8 @@ void cbuf_init(cbuf_s_t *);
 
 bool cbuf_is_empty(cbuf_s_t *);
 
+void cbuf_push(cbuf_s_t *, item_t);
+
 #ifdef UNIT_TESTING
 index_t cbuf_get_head(const cbuf_s_t* cbuf);
 

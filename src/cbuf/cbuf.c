@@ -8,7 +8,18 @@ void cbuf_init(cbuf_s_t * cbuf)
 
 bool cbuf_is_empty(cbuf_s_t * cbuf)
 {
+    if(cbuf->head != cbuf->tail)
+    {
+        return false;
+    }
+    
     return true;
+}
+
+void cbuf_push(cbuf_s_t * cbuf, item_t item)
+{
+    cbuf->buffer[cbuf->tail] = item;
+    cbuf->tail++;
 }
 
 #ifdef UNIT_TESTING

@@ -61,6 +61,16 @@ TEST(CbufTests, full_after_added_size_amount_items)
     EXPECT_TRUE(cbuf_is_full(&cbuf));
 }
 
+TEST(CbufTests, add_item_if_not_full)
+{
+    cbuf_s_t cbuf;
+    item_t item = 0xFFFF;
+
+    cbuf_init(&cbuf);
+
+    EXPECT_TRUE(cbuf_push(&cbuf, item));
+}
+
 
 
 

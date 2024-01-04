@@ -22,3 +22,9 @@ typedef struct
 void cbuf_init(cbuf_s_t *);
 
 bool cbuf_is_empty(cbuf_s_t *);
+
+#ifdef UNIT_TESTING
+index_t cbuf_get_head(const cbuf_s_t* cbuf);
+
+index_t cbuf_get_tail(const cbuf_s_t* cbuf);
+#endif

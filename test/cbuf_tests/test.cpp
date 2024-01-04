@@ -53,7 +53,7 @@ TEST(CbufTests, full_after_added_size_amount_items)
     item_t item = 0xFFFF;
 
     cbuf_init(&cbuf);
-    for(uint32_t i = 0; i > CBUF_SIZE; i++)
+    for(uint32_t i = 0; i < CBUF_SIZE; i++)
     {
         cbuf_push(&cbuf, item);
     }
@@ -70,6 +70,8 @@ TEST(CbufTests, add_item_if_not_full)
 
     EXPECT_TRUE(cbuf_push(&cbuf, item));
 }
+
+
 
 
 

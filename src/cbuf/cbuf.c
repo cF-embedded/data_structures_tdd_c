@@ -18,11 +18,21 @@ bool cbuf_is_empty(cbuf_s_t * cbuf)
 
 bool cbuf_is_full(cbuf_s_t * cbuf)
 {
-    return true;
+    if(cbuf->tail > (cbuf->head + (CBUF_SIZE - 1)))
+    {
+        return true;
+    }
+    
+    return false;
 }
 
 bool cbuf_push(cbuf_s_t * cbuf, item_t item)
 {
+    if(cbuf_is_full(cbuf))
+    {
+        return false;
+    }
+
     cbuf->buffer[cbuf->tail] = item;
     cbuf->tail++;
 

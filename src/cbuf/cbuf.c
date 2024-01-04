@@ -16,15 +16,15 @@ bool cbuf_is_empty(cbuf_s_t * cbuf)
     return true;
 }
 
+bool cbuf_is_full(cbuf_s_t * cbuf)
+{
+    return true;
+}
+
 void cbuf_push(cbuf_s_t * cbuf, item_t item)
 {
     cbuf->buffer[cbuf->tail] = item;
     cbuf->tail++;
-}
-
-bool cbuf_is_full(cbuf_s_t * cbuf)
-{
-    return true;
 }
 
 #ifdef UNIT_TESTING

@@ -31,6 +31,8 @@ set(INCLUDE_DIRS
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
+add_definitions(-DUNIT_TESTING)
+
 add_executable(${CMAKE_PROJECT_NAME} ${TEST_SOURCES} ${C_SRCS})
 target_link_libraries(${CMAKE_PROJECT_NAME} ${GTEST_LIBRARIES} pthread)
 

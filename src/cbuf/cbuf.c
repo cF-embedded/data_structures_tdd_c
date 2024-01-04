@@ -21,10 +21,12 @@ bool cbuf_is_full(cbuf_s_t * cbuf)
     return true;
 }
 
-void cbuf_push(cbuf_s_t * cbuf, item_t item)
+bool cbuf_push(cbuf_s_t * cbuf, item_t item)
 {
     cbuf->buffer[cbuf->tail] = item;
     cbuf->tail++;
+
+    return true;
 }
 
 #ifdef UNIT_TESTING

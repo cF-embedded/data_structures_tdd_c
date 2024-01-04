@@ -22,6 +22,11 @@ void cbuf_push(cbuf_s_t * cbuf, item_t item)
     cbuf->tail++;
 }
 
+bool cbuf_is_full(cbuf_s_t * cbuf)
+{
+    return true;
+}
+
 #ifdef UNIT_TESTING
 index_t cbuf_get_head(const cbuf_s_t* cbuf) 
 {

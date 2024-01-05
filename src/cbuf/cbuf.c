@@ -39,6 +39,11 @@ bool cbuf_push(cbuf_s_t * cbuf, item_t item)
     return true;
 }
 
+item_t cbuf_pop(cbuf_s_t *)
+{
+    return 0;
+}
+
 #ifdef UNIT_TESTING
 index_t cbuf_get_head(const cbuf_s_t* cbuf) 
 {

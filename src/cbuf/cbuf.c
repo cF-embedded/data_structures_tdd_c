@@ -57,8 +57,16 @@ item_t cbuf_pop(cbuf_s_t * cbuf)
     } 
 
     actual_item = cbuf->buffer[cbuf->head];
-    cbuf->head++;
+    if (cbuf->head == (CBUF_SIZE - 1))
+    {
+        cbuf->head = 0;
+    }
 
+    else
+    {
+        cbuf->head++;
+    }
+    
     return actual_item;
 }
 

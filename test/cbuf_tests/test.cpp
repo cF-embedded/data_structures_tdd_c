@@ -130,5 +130,19 @@ TEST(CbufTests, get_buffer_size_after_init)
     EXPECT_EQ(CBUF_SIZE, cbuf_size(&cbuf));
 }
 
+TEST(CbufTests, get_buffer_size_after_added_items)
+{
+    cbuf_s_t cbuf;
+    item_t item = 0xFFFF;
+
+    cbuf_init(&cbuf);
+    for(uint32_t i = 0; i < 5; i++)
+    {
+        cbuf_push(&cbuf, item);
+    }
+
+    EXPECT_EQ((CBUF_SIZE - 5), cbuf_size(&cbuf));
+}
+
 
 

@@ -144,5 +144,30 @@ TEST(CbufTests, get_buffer_size_after_added_items)
     EXPECT_EQ((CBUF_SIZE - 5), cbuf_size(&cbuf));
 }
 
+TEST(CbufTests, tail_not_overflow_after_added_max_items_pop_and_added)
+{
+    cbuf_s_t cbuf;
+    item_t item = 0xFFFF;
+    index_t tail_new_val = 4;
+
+    cbuf_init(&cbuf);
+    for(uint32_t i = 0; i < CBUF_SIZE; i++)
+    {
+        cbuf_push(&cbuf, item);
+    }
+
+    for(uint32_t i = 0; i < (CBUF_SIZE/2); i++)
+    {
+        cbuf_pop(&cbuf);
+    }
+
+    for(uint32_t i = 0; i < tail_new_val; i++)
+    {
+        cbuf_push(&cbuf, item);
+    }
+
+    EXPECT_EQ(tail_new_val, cbuf_get_tail(&cbuf));
+}
+
 
 

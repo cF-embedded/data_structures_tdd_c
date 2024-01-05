@@ -94,6 +94,17 @@ TEST(CbufTests, pop_zero_if_empty)
     EXPECT_EQ(0, cbuf_pop(&cbuf));
 }
 
+TEST(CbufTests, pop_item_if_not_empty)
+{
+    cbuf_s_t cbuf;
+    item_t item = 0xFFFF;
+
+    cbuf_init(&cbuf);
+    cbuf_push(&cbuf, item);
+
+    EXPECT_EQ(item, cbuf_pop(&cbuf));
+}
+
 
 
 

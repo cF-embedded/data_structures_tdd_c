@@ -188,6 +188,27 @@ TEST(CbufTests, head_not_overflow_after_added_max_items_and_pop_max_items)
     EXPECT_EQ(0, cbuf_get_head(&cbuf));
 }
 
+TEST(CbufTests, get_buffer_size_after_added_max_items_pop_max_items_and_add_item)
+{
+    cbuf_s_t cbuf;
+    item_t item = 0xFFFF;
+
+    cbuf_init(&cbuf);
+    for(uint32_t i = 0; i < CBUF_SIZE; i++)
+    {
+        cbuf_push(&cbuf, item);
+    }
+
+    for(uint32_t i = 0; i < CBUF_SIZE; i++)
+    {
+        cbuf_pop(&cbuf);
+    }
+
+    cbuf_push(&cbuf, item);
+
+    EXPECT_EQ((CBUF_SIZE - 1), cbuf_size(&cbuf));
+}
+
 
 
 

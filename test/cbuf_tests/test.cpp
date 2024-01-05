@@ -159,12 +159,36 @@ TEST(CbufTests, tail_not_overflow_after_added_max_items_pop_and_added)
     {
         cbuf_pop(&cbuf);
     }
-    
+
     cbuf_push(&cbuf, item);
 
 
     EXPECT_EQ(0, cbuf_get_tail(&cbuf));
 }
+
+
+TEST(CbufTests, head_not_overflow_after_added_max_items_and_pop_max_items)
+{
+    cbuf_s_t cbuf;
+    item_t item = 0xFFFF;
+
+    cbuf_init(&cbuf);
+    for(uint32_t i = 0; i < CBUF_SIZE; i++)
+    {
+        cbuf_push(&cbuf, item);
+    }
+
+    for(uint32_t i = 0; i < CBUF_SIZE; i++)
+    {
+        cbuf_pop(&cbuf);
+    }
+
+    cbuf_push(&cbuf, item);
+    cbuf_pop(&cbuf);
+
+    EXPECT_EQ(0, cbuf_get_head(&cbuf));
+}
+
 
 
 

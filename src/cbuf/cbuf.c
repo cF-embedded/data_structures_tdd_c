@@ -50,8 +50,13 @@ item_t cbuf_pop(cbuf_s_t * cbuf)
 
     actual_item = cbuf->buffer[cbuf->head];
     cbuf->head++;
-    
+
     return actual_item;
+}
+
+size_t cbuf_size(cbuf_s_t * cbuf)
+{
+    return CBUF_SIZE;
 }
 
 #ifdef UNIT_TESTING

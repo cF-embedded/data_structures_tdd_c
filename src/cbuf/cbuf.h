@@ -29,6 +29,8 @@ bool cbuf_push(cbuf_s_t *, item_t);
 
 item_t cbuf_pop(cbuf_s_t *);
 
+size_t cbuf_size(cbuf_s_t *);
+
 #ifdef UNIT_TESTING
 index_t cbuf_get_head(const cbuf_s_t* cbuf);
 

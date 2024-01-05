@@ -85,6 +85,15 @@ TEST(CbufTests, not_add_item_if_full)
     EXPECT_FALSE(cbuf_push(&cbuf, item));
 }
 
+TEST(CbufTests, pop_zero_if_empty)
+{
+    cbuf_s_t cbuf;
+
+    cbuf_init(&cbuf);
+
+    EXPECT_EQ(0, cbuf_pop(&cbuf));
+}
+
 
 
 

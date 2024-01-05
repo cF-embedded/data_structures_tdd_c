@@ -72,7 +72,9 @@ item_t cbuf_pop(cbuf_s_t * cbuf)
 
 size_t cbuf_size(cbuf_s_t * cbuf)
 {
-    return((CBUF_SIZE + cbuf->head) - cbuf->tail);
+    if(cbuf_is_empty(cbuf)) return CBUF_SIZE;
+
+    return ((CBUF_SIZE - (cbuf->tail - cbuf->head)) % CBUF_SIZE);
 }
 
 #ifdef UNIT_TESTING

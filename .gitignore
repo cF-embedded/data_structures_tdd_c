@@ -1,5 +1,6 @@
 # Out folder
 test/stack_tests/out
+test/cbuf_tests/out
 
 # clang-format stuff
 *.clang-format

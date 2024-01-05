@@ -121,7 +121,14 @@ TEST(CbufTests, head_increment_after_pop_item)
     EXPECT_EQ(last_head_val, cbuf_get_head(&cbuf));
 }
 
+TEST(CbufTests, get_buffer_size_after_init)
+{
+    cbuf_s_t cbuf;
 
+    cbuf_init(&cbuf);
+
+    EXPECT_EQ(CBUF_SIZE, cbuf_size(&cbuf));
+}
 
 
 

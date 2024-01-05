@@ -162,7 +162,6 @@ TEST(CbufTests, tail_not_overflow_after_added_max_items_pop_and_added)
 
     cbuf_push(&cbuf, item);
 
-
     EXPECT_EQ(0, cbuf_get_tail(&cbuf));
 }
 

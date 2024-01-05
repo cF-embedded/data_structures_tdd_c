@@ -105,6 +105,21 @@ TEST(CbufTests, pop_item_if_not_empty)
     EXPECT_EQ(item, cbuf_pop(&cbuf));
 }
 
+TEST(CbufTests, head_increment_after_pop_item)
+{
+    cbuf_s_t cbuf;
+    item_t item = 0xFFFF;
+    index_t last_head_val;
+
+    cbuf_init(&cbuf);
+    cbuf_push(&cbuf, item);
+    last_head_val = cbuf_get_head(&cbuf);
+
+    cbuf_pop(&cbuf);
+    last_head_val++;
+
+    EXPECT_EQ(last_head_val, cbuf_get_head(&cbuf));
+}
 
 
 

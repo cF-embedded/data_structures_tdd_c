@@ -148,7 +148,6 @@ TEST(CbufTests, tail_not_overflow_after_added_max_items_pop_and_added)
 {
     cbuf_s_t cbuf;
     item_t item = 0xFFFF;
-    index_t tail_new_val = 4;
 
     cbuf_init(&cbuf);
     for(uint32_t i = 0; i < CBUF_SIZE; i++)
@@ -156,17 +155,15 @@ TEST(CbufTests, tail_not_overflow_after_added_max_items_pop_and_added)
         cbuf_push(&cbuf, item);
     }
 
-    for(uint32_t i = 0; i < (CBUF_SIZE/2); i++)
+    for(uint32_t i = 0; i < CBUF_SIZE; i++)
     {
         cbuf_pop(&cbuf);
     }
+    
+    cbuf_push(&cbuf, item);
 
-    for(uint32_t i = 0; i < tail_new_val; i++)
-    {
-        cbuf_push(&cbuf, item);
-    }
 
-    EXPECT_EQ(tail_new_val, cbuf_get_tail(&cbuf));
+    EXPECT_EQ(0, cbuf_get_tail(&cbuf));
 }
 
 

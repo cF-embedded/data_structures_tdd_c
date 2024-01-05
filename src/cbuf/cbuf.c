@@ -18,12 +18,7 @@ bool cbuf_is_empty(cbuf_s_t * cbuf)
 
 bool cbuf_is_full(cbuf_s_t * cbuf)
 {
-    if((cbuf->head) == (cbuf->tail + 1))
-    {
-        return true;
-    }
-
-    if((cbuf->tail == (CBUF_SIZE - 1)) && (cbuf->head == 0))
+    if((cbuf->tail + 1) % CBUF_SIZE == cbuf->head)
     {
         return true;
     }

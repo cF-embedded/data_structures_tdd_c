@@ -41,12 +41,17 @@ bool cbuf_push(cbuf_s_t * cbuf, item_t item)
 
 item_t cbuf_pop(cbuf_s_t * cbuf)
 {
+    item_t actual_item = 0;
+
     if (cbuf_is_empty(cbuf))
     {
-        return 0;
+        return actual_item;
     } 
 
-    return cbuf->buffer[cbuf->head];
+    actual_item = cbuf->buffer[cbuf->head];
+    cbuf->head++;
+    
+    return actual_item;
 }
 
 #ifdef UNIT_TESTING

@@ -127,21 +127,22 @@ TEST(CbufTests, get_buffer_size_after_init)
 
     cbuf_init(&cbuf);
 
-    EXPECT_EQ(CBUF_SIZE, cbuf_size(&cbuf));
+    EXPECT_EQ(0, cbuf_size(&cbuf));
 }
 
 TEST(CbufTests, get_buffer_size_after_added_items)
 {
     cbuf_s_t cbuf;
     item_t item = 0xFFFF;
+    size_t buffer_size = 5;
 
     cbuf_init(&cbuf);
-    for(uint32_t i = 0; i < 5; i++)
+    for(uint32_t i = 0; i < buffer_size; i++)
     {
         cbuf_push(&cbuf, item);
     }
 
-    EXPECT_EQ((CBUF_SIZE - 5), cbuf_size(&cbuf));
+    EXPECT_EQ(buffer_size, cbuf_size(&cbuf));
 }
 
 TEST(CbufTests, tail_not_overflow_after_added_max_items_pop_and_added)
@@ -206,7 +207,7 @@ TEST(CbufTests, get_buffer_size_after_added_max_items_pop_max_items_and_add_item
 
     cbuf_push(&cbuf, item);
 
-    EXPECT_EQ((CBUF_SIZE - 1), cbuf_size(&cbuf));
+    EXPECT_EQ(1, cbuf_size(&cbuf));
 }
 
 
